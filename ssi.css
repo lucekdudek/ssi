@@ -1,0 +1,64 @@
+body
+{
+    margin: 1vmin;
+    background-color: #ffffff;
+    font-family: sans-serif;
+    font-size: 3vh; /*1vh = 1% of viewport height*/
+    text-align: center;
+}
+
+.page
+{
+    background-color: #1c1512;
+    padding: 1vh;
+    min-height: 80vh;
+}
+
+.header
+{
+    background-color: #45060a;
+    padding: 1vh;
+    color: #ffffff;
+}
+
+.footer
+{
+    background-color: #45060a;
+    padding: 1vh;
+    color: #ffffff;
+}
+
+.element
+{
+    margin: 1vh;
+    padding: 1vh;
+    background-color: rgba(216, 214, 203, 0.8);
+}
+
+.button
+{
+    border: 0;
+    margin: 1vh;
+    padding: 1vh;
+    color: #ffffff;
+    background-color: #355e3f;
+    font-size: 3vh;
+}
+
+.edit
+{
+    /*to nie działa*/
+    text-align: right;
+}
+
+.delete
+{
+    /*to nie działa*/
+    text-align: right;
+}
+
+.h1
+{
+    font-size: 5vh
+}
+
