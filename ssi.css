@@ -62,3 +62,79 @@ body
     font-size: 5vh
 }
 
+.form-widget {
+    display: block;
+    margin-bottom: 2vh;
+    text-align: left;
+}
+    .form-widget:last-child {
+        margin-bottom: 0;
+    }
+
+    .form-widget label {
+        font-size: 2vh;
+        display: block;
+        margin-bottom: 0.5vh;
+    }
+
+    .form-widget input {
+        border: 0;
+        margin: 0;
+        padding: 1vh;
+        font-size: 2vh;
+        width: 100%;
+        display: block;
+        box-sizing: border-box;
+    }
+        .form-widget input[type="file"] {
+            padding: 0;
+        }
+
+    .form-widget textarea {
+        margin: 0;
+        padding: 1vh;
+        font-size: 2vh;
+        width: 100%;
+        max-width: 100%;
+        min-height: 200px;
+        box-sizing: border-box;
+    }
+
+.form--add-offer {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.offer {}
+    .offer p {
+        margin: 2vh auto;
+        text-align: left;
+        width: 600px;
+        font-size: 2vh;
+    }
+
+    .offer span {
+        display: block
+    }
+
+    .offer__photo {
+        background-size: cover;
+        background-position: center center;
+        background-color: #86847f;
+        display: block;
+        max-width: 300px;
+        width: 100%;
+        height: 200px;
+        margin: 0 auto;
+        margin-bottom: 10px;
+    }
+
+    .offer input[type="text"] {
+        border: 0;
+        margin: 0;
+        padding: 1.5vh;
+        font-size: 2vh;
+        max-width: 200px;
+        box-sizing: border-box;
+        vertical-align: middle;
+    }
