@@ -16,38 +16,23 @@
             <a href="">Zaloguj</a>
         </div>
     </div>
-    <div class="main">
+    <div class="main main--form">
         <div class="content">
-            <div class="main__sidebar">
-                <ul>
-                    <li><a href="admin.html">Products</a></li>
-                    <li><a href="admin_users.html">Users</a></li>
-                </ul>
-            </div>
             <div class="main__content">
-                <h2>Add product</h2>
-                <form class="form form--half" method="post">
+                <h2>Log in</h2>
+                <form class="form" method="post">
                     <div class="form__group">
-                        <label>Name:</label>
-                        <input type="text" name="name"/>
+                        <label>Username:</label>
+                        <input type="text" name="username"/>
                         <span class="form__error"></span>
                     </div>
                     <div class="form__group">
-                        <label>Photo:</label>
-                        <input type="file" name="photo"/>
+                        <label>Password:</label>
+                        <input type="password" name="password"/>
                         <span class="form__error"></span>
                     </div>
-                    <div class="form__group">
-                        <label>Min. price:</label>
-                        <input type="text" name="name"/>
-                        <span class="form__error"></span>
-                    </div>
-                    <div class="form__group">
-                        <label>Description:</label>
-                        <textarea name="name"></textarea>
-                        <span class="form__error"></span>
-                    </div>
-                    <input type="submit" class="btn" name="submit" value="Add product"/>
+                    <input type="submit" class="btn" name="submit" value="Login"/>
+                    <a href="register.html" class="form__bottom-link">Sign up</a>
                 </form>
             </div>
         </div>

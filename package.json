@@ -1,0 +1,19 @@
+{
+  "name": "ssi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.17.5",
+    "gulp-ruby-sass": "^2.1.0"
+  }
+}
