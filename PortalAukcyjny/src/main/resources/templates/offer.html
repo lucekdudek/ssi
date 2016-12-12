@@ -26,6 +26,9 @@
                         <form class="product-details__bid">
                             20$ <input type="text"/><button class="btn">Bid</button>
                         </form>
+                        <form class="product-details__edit" th:action="${'/offer/'+product.id+'/edit/'}" method="get">
+                            <button class="btn">Edit</button>
+                        </form>
                         <p class="product-details__desc" th:text="${product.desc}"></p>
                     </div>
                 </div>

@@ -74,5 +74,30 @@ public class OfferController {
 	    
     }
 	
-
+	@GetMapping("/offer/{id}/edit")
+	public String getEditOffer(@PathVariable long id, Model model){
+		model.addAttribute("product", repository.findOne(id));
+        return "editoffer";
+    }
+	
+	@PostMapping("/offer/{id}/edit")
+	public ModelAndView postEditOffer(@PathVariable long id,
+			@RequestParam("name") String name,
+			@RequestParam("price") String price,
+			@RequestParam("desc") String desc){
+		
+		Offer offer = repository.findOne(id);
+		offer.setDesc(desc);
+		offer.setName(name);
+		//TODO change min price
+		repository.save(offer);
+		return new ModelAndView("redirect:/offer/"+id);
+    }
+	
+	@PostMapping("/offer/{id}/delete")
+	public ModelAndView postDeleteOffer(@PathVariable long id){
+		repository.delete(id);
+		return new ModelAndView("redirect:/");
+    }
+	
 }
