@@ -9,14 +9,22 @@ import javax.persistence.Id;
 @Entity
 public class User{
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private String id;
+	//@GeneratedValue(strategy = GenerationType.AUTO)
 	private String login;
 	private String password;
 	private String email;
 	private String firstName;
 	private String lastName;
+	private int permissions;
 	
+	public int getPermissions() {
+		return permissions;
+	}
+
+	public void setPermissions(int permissions) {
+		this.permissions = permissions;
+	}
+
 	public User(){}
 	
 	public String getLogin() {

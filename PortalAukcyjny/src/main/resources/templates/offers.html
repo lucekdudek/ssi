@@ -14,7 +14,7 @@
         <div class="content">
             <button class="btn-toggle"><i></i><i></i><i></i></button>
             <a href="/"><h1>Portal aukcyjny</h1></a>
-            <div>${user}</div>
+            <div th:text="${session.login}" th:unless="${session == null}"></div>
             <a href="/login">Zaloguj</a>
         </div>
     </div>
