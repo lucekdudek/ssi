@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,500&amp;subset=latin-ext" rel="stylesheet"/>
     <link rel="stylesheet" href="/css/normalize.css"/>
     <link rel="stylesheet" href="/css/main.css"/>
+    <script type="text/javascript" src="js/jquery.js"></script>
 </head>
 <body>
     <div class="header">
@@ -17,6 +18,7 @@
         </div>
     </div>
     <div class="main">
+        <div class="main__bg"></div>
         <div class="content">
             <div class="main__sidebar">
                 <ul>
@@ -29,7 +31,7 @@
                 <form class="form form--half" action="/add" method="post" enctype="multipart/form-data">
                     <div class="form__group">
                         <label>Name:</label>
-                        <input type="text" name="name"/>
+                        <input type="text" name="name" required="required"/>
                         <span class="form__error"></span>
                     </div>
                     <div class="form__group">
@@ -37,7 +39,7 @@
                         <div class="file-wrapper">
                             <div class="file-wrapper__preview"><img id="preview" style="max-width: 100%;"/></div>
                             <div class="file-wrapper__btn">
-                                <input type="file" name="file"/>
+                                <input type="file" name="file" required="required"/>
                                 <button class="btn">Wczytaj</button>
                             </div>
                         </div>
@@ -45,12 +47,12 @@
                     </div>
                     <div class="form__group">
                         <label>Min. price:</label>
-                        <input type="text" name="price"/>
+                        <input type="text" name="price" required="required"/>
                         <span class="form__error"></span>
                     </div>
                     <div class="form__group">
                         <label>Description:</label>
-                        <textarea name="desc"></textarea>
+                        <textarea name="desc" required="required"></textarea>
                         <span class="form__error"></span>
                     </div>
                     <input type="submit" class="btn" name="submit" value="Add product"/>
@@ -64,6 +66,7 @@
         </div>
     </div>
     
+    <script src="js/main.js"></script>
 	<script type="text/javascript">
 	    document.querySelector('input[type="file"]').addEventListener('change', function(){
 	        var file = this.files[0];
