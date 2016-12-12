@@ -4,15 +4,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import com.example.User;
 
 @Entity
 public class Offer {
-	
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
-	private User user;
+	//private User user;
 	private int zloty;
 	private int groszy;
 	private String photo;
@@ -35,13 +34,13 @@ public class Offer {
 		return id;
 	}
 
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
+//	public User getUser() {
+//		return user;
+//	}
+//
+//	public void setUser(User user) {
+//		this.user = user;
+//	}
 
 	public int getZloty() {
 		return zloty;
