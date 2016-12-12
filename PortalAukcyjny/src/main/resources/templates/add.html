@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8"/>
     <title>Portal aukcyjny</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500&amp;subset=latin-ext" rel="stylesheet">
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500&amp;subset=latin-ext" rel="stylesheet"/>
+    <link rel="stylesheet" href="/css/normalize.css"/>
+    <link rel="stylesheet" href="/css/main.css"/>
 </head>
 <body>
     <div class="header">
         <div class="content">
             <button class="btn-toggle"><i></i><i></i><i></i></button>
-            <h1>Portal aukcyjny</h1>
+            <a href="/"><h1>Portal aukcyjny</h1></a>
             <a href="">Zaloguj</a>
         </div>
     </div>
@@ -26,7 +26,7 @@
             </div>
             <div class="main__content">
                 <h2>Add product</h2>
-                <form class="form form--half" method="post">
+                <form class="form form--half" action="/add" method="post" enctype="multipart/form-data">
                     <div class="form__group">
                         <label>Name:</label>
                         <input type="text" name="name"/>
@@ -45,12 +45,12 @@
                     </div>
                     <div class="form__group">
                         <label>Min. price:</label>
-                        <input type="text" name="name"/>
+                        <input type="text" name="price"/>
                         <span class="form__error"></span>
                     </div>
                     <div class="form__group">
                         <label>Description:</label>
-                        <textarea name="name"></textarea>
+                        <textarea name="desc"></textarea>
                         <span class="form__error"></span>
                     </div>
                     <input type="submit" class="btn" name="submit" value="Add product"/>
@@ -63,17 +63,18 @@
             Portal aukcyjny 2016
         </div>
     </div>
-    <script type="text/javascript">
-        document.querySelector('input[type="file"]').addEventListener('change', function(){
-            var file = this.files[0];
-            var preview = document.getElementById('preview');
-            var reader  = new FileReader();
-            reader.addEventListener("load", function () {
-                preview.src = reader.result;
-            }, false);
-
-            if (file) reader.readAsDataURL(file);
-        })
-    </script>
+    
+	<script type="text/javascript">
+	    document.querySelector('input[type="file"]').addEventListener('change', function(){
+	        var file = this.files[0];
+	        var preview = document.getElementById('preview');
+	        var reader  = new FileReader();
+	        reader.addEventListener("load", function () {
+	            preview.src = reader.result;
+	        }, false);
+	
+	        if (file) reader.readAsDataURL(file);
+	    })
+	</script>
 </body>
 </html>
