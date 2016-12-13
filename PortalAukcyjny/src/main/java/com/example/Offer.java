@@ -1,9 +1,12 @@
 package com.example;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
+
 import com.example.User;
 
 @Entity
@@ -11,13 +14,68 @@ public class Offer {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
-	//private User user;
+	@Column
+	private String userLogin; //login wystawiającego
+	@Column
 	private int zloty;
+	@Column
 	private int groszy;
+	@Column
 	private String photo;
-	private String name;
-	private String desc;
+	@Column
+	private String name; //tytuł oferty
+	@Column
+	@Lob
+	private String desc; //opis
+	@Column
+	private String status; //to może przyjmować wartości: Aktywna, Zakończona, Anulowana
+	@Column
+	private String createDate; //data wystawienia oferty
+	@Column
+	private String endDate; //data zakończenia/anulacji oferty
+	@Column
+	private String buyerId; //login kupującego
 	
+	public String getUserLogin() {
+		return userLogin;
+	}
+
+	public void setUserLogin(String userLogin) {
+		this.userLogin = userLogin;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public String getCreateDate() {
+		return createDate;
+	}
+
+	public void setCreateDate(String createDate) {
+		this.createDate = createDate;
+	}
+
+	public String getEndDate() {
+		return endDate;
+	}
+
+	public void setEndDate(String endDate) {
+		this.endDate = endDate;
+	}
+
+	public String getBuyerId() {
+		return buyerId;
+	}
+
+	public void setBuyerId(String buyerId) {
+		this.buyerId = buyerId;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
 	public Offer(){}
 	
 	public Offer(String name, String photo, String desc){
@@ -33,14 +91,6 @@ public class Offer {
 	public long getId() {
 		return id;
 	}
-
-//	public User getUser() {
-//		return user;
-//	}
-//
-//	public void setUser(User user) {
-//		this.user = user;
-//	}
 
 	public int getZloty() {
 		return zloty;

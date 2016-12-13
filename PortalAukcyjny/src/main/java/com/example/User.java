@@ -1,6 +1,7 @@
 package com.example;
 
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,10 +12,15 @@ public class User{
 	@Id
 	//@GeneratedValue(strategy = GenerationType.AUTO)
 	private String login;
+	@Column
 	private String password;
+	@Column
 	private String email;
+	@Column
 	private String firstName;
+	@Column
 	private String lastName;
+	@Column
 	private int permissions;
 	
 	public int getPermissions() {
