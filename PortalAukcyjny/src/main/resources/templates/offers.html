@@ -1,69 +1,24 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="utf-8"/>
-    <title>Portal aukcyjny</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500&amp;subset=latin-ext" rel="stylesheet"/>
-    <link rel="stylesheet" href="/css/normalize.css"/>
-    <link rel="stylesheet" href="/css/main.css"/>
-    <script type="text/javascript" src="js/jquery.js"></script>
-</head>
-<body>
-    <div class="header">
-        <div class="content">
-            <button class="btn-toggle"><i></i><i></i><i></i></button>
-                <a href="/"><h1>Portal aukcyjny</h1></a>
-            <div th:if="${session.permissions>=0}">
-                <a href="/logout">Log out</a>
-            </div>
-            <div th:unless="${session.permissions>=0}">
-                <a href="/login">Log in</a>
-            </div>
-        </div>
-    </div>
-    <div class="main">
-        <div class="content">
-            <div class="main__sidebar">
-                <ul>
-                	<li><a href="/">Offers</a></li>
-                    <div th:if="${session.permissions>=0}">
-                        <li><a href="/add">Add offer</a></li>
-                    </div>
-                </ul>
-               	<h3 th:if="${session.permissions==1}">Admin</h3>
-                <ul th:if="${session.permissions==1}">
-                    <li><a href="/admin_offers">Manage offers</a></li>
-                  	<li><a href="/admin_users">Manage users</a></li>
-                </ul>
-            </div>
-            <div class="main__content">
-                <h2>Products</h2>
-                <div class="list-products">
-                    <div class="list-products__item" data-th-each="product : ${products}">
-                        <div class="list-products__item-img"><img th:src="${'uploads/' + product.photo}"/></div>
-                        <div class="list-products__item-content">
-                            <h3 th:text="${product.name}"></h3>
-                            <div class="list-products__item-bottom">
-                                <span th:text="${product.price}"></span>
-                                <div>
-                                    <a th:href="${'/offer/'+product.id}" class="btn">See more</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-	                <div class="list-products__item"></div>
-	                <div class="list-products__item"></div>
-	                <div class="list-products__item"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="footer">
-        <div class="content">
-            Portal aukcyjny 2016
-        </div>
-    </div>
-    <script src="js/main.js"></script>
-</body>
+<html layout:decorator="layout">
+
+   <div layout:fragment="content">
+       <h2>Offers</h2>
+       <div class="list-products">
+           <div class="list-products__item" data-th-each="product : ${products}">
+               <div class="list-products__item-img"><img th:src="${'uploads/' + product.photo}"/></div>
+               <div class="list-products__item-content">
+                   <h3 th:text="${product.name}"></h3>
+                   <div class="list-products__item-bottom">
+                       <span th:text="${product.price}"></span>
+                       <div>
+                           <a th:href="${'/offer/'+product.id}" class="btn">See more</a>
+                       </div>
+                   </div>
+               </div>
+           </div>
+        <div class="list-products__item"></div>
+        <div class="list-products__item"></div>
+        <div class="list-products__item"></div>
+       </div>
+   </div>
+   
 </html>

@@ -1,46 +1,16 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="utf-8"/>
-    <title>Portal aukcyjny</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500&amp;subset=latin-ext" rel="stylesheet"/>
-    <link rel="stylesheet" href="/css/normalize.css"/>
-    <link rel="stylesheet" href="/css/main.css"/>
-</head>
-<body>
-    <div class="header">
-        <div class="content">
-            <button class="btn-toggle"><i></i><i></i><i></i></button>
-                <a href="/"><h1>Portal aukcyjny</h1></a>
-            <div th:if="${session.permissions>=0}">
-                <a href="/logout">Log out</a>
-            </div>
-            <div th:unless="${session.permissions>=0}">
-                <a href="/login">Log in</a>
-            </div>
-        </div>
-    </div>
-    <div class="main">
-        <div class="content">
-            <div class="main__content">
-                <div class="product-details">
-                    <div class="product-details__img"><img th:src="${'/uploads/' + product.photo}"/></div>
-                    <div class="product-details__content">
-                        <h2 th:text="${product.name}"></h2>
-                        <form class="product-details__bid">
-                            <span th:text="${product.price}"></span> <input type="text"/><button class="btn">Bid</button>
-                        </form>
-                        <p class="product-details__desc" th:text="${product.desc}"></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="footer">
-        <div class="content">
-            Portal aukcyjny 2016
-        </div>
-    </div>
-</body>
+<html layout:decorator="layout">
+
+   <div layout:fragment="content">
+		<div class="product-details">
+	         <div class="product-details__img"><img th:src="${'/uploads/' + product.photo}"/></div>
+	         <div class="product-details__content">
+	             <h2 th:text="${product.name}"></h2>
+	             <form class="product-details__bid">
+	                 <span th:text="${product.price}"></span> <input type="text"/><button class="btn">Bid</button>
+	             </form>
+	             <p class="product-details__desc" th:text="${product.desc}"></p>
+	         </div>
+     	</div>
+   </div>
+   
 </html>
