@@ -23,19 +23,13 @@
     </div>
     <div class="main">
         <div class="content">
-            <div class="main__sidebar">
-                <ul>
-                    <li><a href="admin.html">Products</a></li>
-                    <li><a href="admin_users.html">Users</a></li>
-                </ul>
-            </div>
             <div class="main__content">
                 <h2>
+                Edit
+                </h2>
                 <form class="product-details__delete" th:action="${'/offer/'+product.id+'/delete/'}" method="post">
                     <input type="submit" class="btn" name="submit" value="Delete"/>
                 </form>
-                Edit
-                </h2>
                 <form class="form form--half" th:action="${'/offer/'+product.id+'/edit/'}" method="post" enctype="multipart/form-data">
                     <div class="form__group">
                         <label>Name:</label>

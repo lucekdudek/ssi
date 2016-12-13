@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -67,6 +68,18 @@ public class UserController {
 		repository.save(user);
 		return new ModelAndView("redirect:/");
 	}
+	
+	@GetMapping("/admin_users")
+	public String getAdminOffer(Model model){
+		model.addAttribute("users", repository.findAll());
+        return "admin_users";
+    }
+	
+	@PostMapping("/user/{id}/delete")
+	public ModelAndView postDeleteOffer(@PathVariable String id){
+		repository.delete(id);
+		return new ModelAndView("redirect:/");
+    }
 	//@PostMapping(value="/login")
 //	public ModelAndView loginSubmit(Model model){
 //		model.addAttribute(arg0);

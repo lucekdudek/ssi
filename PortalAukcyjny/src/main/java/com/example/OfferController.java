@@ -36,6 +36,12 @@ public class OfferController {
 		model.addAttribute("product", repository.findOne(id));
         return "offer";
     }
+	
+	@GetMapping("/admin_offers")
+	public String getAdminOffer(Model model){
+		model.addAttribute("products", repository.findAll());
+        return "admin_offers";
+    }
 
 	@GetMapping("/add")
 	public String addOffer(){
