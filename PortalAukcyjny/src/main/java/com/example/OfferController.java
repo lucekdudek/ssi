@@ -97,7 +97,7 @@ public class OfferController {
 		offer.setName(name);
 		//TODO change min price
 		repository.save(offer);
-		return new ModelAndView("redirect:/offer/"+id);
+		return new ModelAndView("redirect:/");
     }
 	
 	@PostMapping("/offer/{id}/delete")

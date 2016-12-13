@@ -76,8 +76,10 @@ public class UserController {
     }
 	
 	@PostMapping("/user/{id}/delete")
-	public ModelAndView postDeleteOffer(@PathVariable String id){
-		repository.delete(id);
+	public ModelAndView postDeleteOffer(@PathVariable String id, HttpSession session){
+		if(!session.getAttribute("login").equals(id)){
+			repository.delete(id);
+		}
 		return new ModelAndView("redirect:/");
     }
 	//@PostMapping(value="/login")
