@@ -31,13 +31,10 @@
                         <li><a href="/add">Add offer</a></li>
                     </div>
                 </ul>
-                <ul>
-                    <div th:if="${session.permissions==1}">
-                        <li><a></a></li>
-                    	<li><a>----Admin----</a></li>
-                        <li><a href="/admin_offers">Manage offers</a></li>
-                    	<li><a href="/admin_users">Manage users</a></li>
-                    </div>
+               	<h3 th:if="${session.permissions==1}">Admin</h3>
+                <ul th:if="${session.permissions==1}">
+                    <li><a href="/admin_offers">Manage offers</a></li>
+                  	<li><a href="/admin_users">Manage users</a></li>
                 </ul>
             </div>
             <div class="main__content">
@@ -48,7 +45,7 @@
                         <div class="list-products__item-content">
                             <h3 th:text="${product.name}"></h3>
                             <div class="list-products__item-bottom">
-                                <span>28$</span>
+                                <span th:text="${product.price}"></span>
                                 <div>
                                     <a th:href="${'/offer/'+product.id}" class="btn">See more</a>
                                 </div>

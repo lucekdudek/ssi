@@ -29,7 +29,7 @@
                     <div class="product-details__content">
                         <h2 th:text="${product.name}"></h2>
                         <form class="product-details__bid">
-                            20$ <input type="text"/><button class="btn">Bid</button>
+                            <span th:text="${product.price}"></span> <input type="text"/><button class="btn">Bid</button>
                         </form>
                         <p class="product-details__desc" th:text="${product.desc}"></p>
                     </div>
