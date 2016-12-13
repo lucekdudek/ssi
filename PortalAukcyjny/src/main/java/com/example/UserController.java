@@ -38,6 +38,16 @@ public class UserController {
 		return modelAndView;
 	}
 	
+	@GetMapping("/logout")
+	public ModelAndView logutPage(HttpSession session){
+		session.setAttribute("login", null);
+		session.setAttribute("email", null);
+		session.setAttribute("firstName", null);
+		session.setAttribute("lastName", null);
+		session.setAttribute("permissions", null);
+		return new ModelAndView("redirect:/");
+	}
+	
 	@RequestMapping(value = "/login")
 	public ModelAndView loginPage() {
 		return new ModelAndView("login");

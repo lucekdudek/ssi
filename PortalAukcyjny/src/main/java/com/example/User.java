@@ -25,7 +25,9 @@ public class User{
 		this.permissions = permissions;
 	}
 
-	public User(){}
+	public User(){
+		this.setPermissions(1);
+	}
 	
 	public String getLogin() {
 		return login;

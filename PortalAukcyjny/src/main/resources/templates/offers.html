@@ -13,13 +13,33 @@
     <div class="header">
         <div class="content">
             <button class="btn-toggle"><i></i><i></i><i></i></button>
-            <a href="/"><h1>Portal aukcyjny</h1></a>
-            <div th:text="${session.login}" th:unless="${session == null}"></div>
-            <a href="/login">Zaloguj</a>
+                <a href="/"><h1>Portal aukcyjny</h1></a>
+            <div th:if="${session.permissions>=0}">
+                <a href="/logout">Log out</a>
+            </div>
+            <div th:unless="${session.permissions>=0}">
+                <a href="/login">Log in</a>
+            </div>
         </div>
     </div>
     <div class="main">
         <div class="content">
+            <div class="main__sidebar">
+                <ul>
+                	<li><a href="/">Offers</a></li>
+                    <div th:if="${session.permissions>=0}">
+                        <li><a href="/add">Add offer</a></li>
+                    </div>
+                </ul>
+                <ul>
+                    <div th:if="${session.permissions==1}">
+                        <li><a></a></li>
+                    	<li><a>----Admin----</a></li>
+                        <li><a href="/">Manage offers</a></li>
+                    	<li><a href="/admin_users">Manage users</a></li>
+                    </div>
+                </ul>
+            </div>
             <div class="main__content">
                 <h2>Products</h2>
                 <div class="list-products">
