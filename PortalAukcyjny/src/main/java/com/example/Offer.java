@@ -7,8 +7,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 
-import com.example.User;
-
 @Entity
 public class Offer {
 	@Id
@@ -17,9 +15,7 @@ public class Offer {
 	@Column
 	private String userLogin; //login wystawiającego
 	@Column
-	private int zloty;
-	@Column
-	private int groszy;
+	private int price;
 	@Column
 	private String photo;
 	@Column
@@ -35,6 +31,17 @@ public class Offer {
 	private String endDate; //data zakończenia/anulacji oferty
 	@Column
 	private String buyerId; //login kupującego
+
+
+	public Offer(){}
+	
+	public Offer(String name, String photo, int price, String desc){
+		this.name = name;
+		this.photo = photo;
+		this.price = price;
+		this.desc = desc;
+	}
+	
 	
 	public String getUserLogin() {
 		return userLogin;
@@ -76,14 +83,6 @@ public class Offer {
 		this.status = status;
 	}
 
-	public Offer(){}
-	
-	public Offer(String name, String photo, String desc){
-		this.name = name;
-		this.photo = photo;
-		this.desc = desc;
-	}
-
 	public void setId(long id) {
 		this.id = id;
 	}
@@ -92,20 +91,12 @@ public class Offer {
 		return id;
 	}
 
-	public int getZloty() {
-		return zloty;
+	public int getPrice() {
+		return price;
 	}
 
-	public void setZloty(int zloty) {
-		this.zloty = zloty;
-	}
-
-	public int getGroszy() {
-		return groszy;
-	}
-
-	public void setGroszy(int groszy) {
-		this.groszy = groszy;
+	public void setPrice(int price) {
+		this.price = price;
 	}
 
 	public String getPhoto() {
