@@ -10,22 +10,21 @@
     <script type="text/javascript" src="js/jquery.js"></script>
 </head>
 <body>
-    <div class="header">
+       <div class="header">
         <div class="content">
             <button class="btn-toggle"><i></i><i></i><i></i></button>
-            <a href="/"><h1>Portal aukcyjny</h1></a>
-            <a href="">Zaloguj</a>
+                <a href="/"><h1>Portal aukcyjny</h1></a>
+            <div th:if="${session.permissions>=0}">
+                <a href="/logout">Log out</a>
+            </div>
+            <div th:unless="${session.permissions>=0}">
+                <a href="/login">Log in</a>
+            </div>
         </div>
     </div>
     <div class="main">
         <div class="main__bg"></div>
         <div class="content">
-            <div class="main__sidebar">
-                <ul>
-                    <li><a href="admin.html">Products</a></li>
-                    <li><a href="admin_users.html">Users</a></li>
-                </ul>
-            </div>
             <div class="main__content">
                 <h2>Add product</h2>
                 <form class="form form--half" action="/add" method="post" enctype="multipart/form-data">

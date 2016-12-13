@@ -12,8 +12,13 @@
     <div class="header">
         <div class="content">
             <button class="btn-toggle"><i></i><i></i><i></i></button>
-            <h1>Portal aukcyjny</h1>
-            <a href="">Zaloguj</a>
+                <a href="/"><h1>Portal aukcyjny</h1></a>
+            <div th:if="${session.permissions>=0}">
+                <a href="/logout">Log out</a>
+            </div>
+            <div th:unless="${session.permissions>=0}">
+                <a href="/login">Log in</a>
+            </div>
         </div>
     </div>
     <div class="main">
