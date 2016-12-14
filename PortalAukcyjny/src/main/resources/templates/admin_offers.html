@@ -4,14 +4,16 @@
        <h2>Manage Offers</h2>
        <div class="list-products">
             <div class="list-products__item" data-th-each="product : ${products}">
+              	<div class="list-products__item-img"><img th:src="${'uploads/' + product.photo}"/></div>
                 <div class="list-products__item-content">
-                    <div class="list-products__item-bottom">
-                    	<h3 th:text="${product.name}"></h3>
-                        <div th:if="${session.permissions==1}">
+                  	<h3 th:text="${product.name}"></h3>
+                    <div class="list-products__item-bottom" th:if="${session.permissions==1}">
                         <form class="product-details__edit" th:action="${'/offer/'+product.id+'/edit/'}" method="get">
                             <button class="btn">Edit</button>
                         </form>
-                        </div>
+                        <form class="product-details__edit" th:action="${'/offer/'+product.id+'/delete/'}" method="post">
+                            <button class="btn btn--second">Delete</button>
+                        </form>
                     </div>
                 </div>
             </div>

@@ -2,9 +2,10 @@
 
    <div layout:fragment="content">
        <h2>Edit offer</h2>
-       <form class="product-details__delete" th:action="${'/offer/'+product.id+'/delete/'}" method="post">
-           <input type="submit" class="btn" name="submit" value="Delete"/>
+       <form class="form form--half" th:action="${'/offer/'+product.id+'/delete/'}" method="post">
+           <input type="submit" class="btn btn--second" name="submit" value="Delete"/>
        </form>
+       <br/><br/>
        <form class="form form--half" th:action="${'/offer/'+product.id+'/edit/'}" method="post" enctype="multipart/form-data">
            <div class="form__group">
                <label>Name:</label>

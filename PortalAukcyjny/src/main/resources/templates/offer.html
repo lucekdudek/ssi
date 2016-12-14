@@ -5,12 +5,14 @@
 	         <div class="product-details__img"><img th:src="${'/uploads/' + product.photo}"/></div>
 	         <div class="product-details__content">
 	             <h2 th:text="${product.name}"></h2>
-	             <form class="product-details__bid">
-	                 <span th:text="${product.price}"></span> <input type="text"/><button class="btn">Bid</button>
+	             <form class="product-details__bid" th:action="${'/offer/'+product.id+'/bid'}" method="post">
+	                 <span th:text="${product.price}"></span> <input type="number" name="price" required="required"/><button class="btn">Bid</button>
 	             </form>
 	             <p class="product-details__desc" th:text="${product.desc}"></p>
 	         </div>
      	</div>
+     	
+     	<script src="/js/offer.js"></script>
    </div>
    
 </html>
