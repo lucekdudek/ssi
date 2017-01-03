@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -54,7 +55,7 @@ public class OfferController {
 							@RequestParam("file") MultipartFile photo,
 							@RequestParam("price") String price,
 							@RequestParam("desc") String desc,
-							@RequestParam("date") String date){
+							@RequestParam("date") String date, HttpSession session){
 		
 		if(!photo.isEmpty()){
 			String uploadsDir = "/uploads/";
@@ -75,7 +76,7 @@ public class OfferController {
 		}        
 		
 		Offer offer = new Offer(name, photo.getOriginalFilename(), Integer.parseInt(price), desc, date);
-		
+		offer.setUserLogin(session.getAttribute("login").toString());
 		repository.save(offer);
 		
 		return new ModelAndView("redirect:/");
@@ -105,10 +106,12 @@ public class OfferController {
 	@PostMapping(value="/offer/{id}/bid")
     @ResponseBody
 	public String postBidOffer(@PathVariable long id,
-			@RequestParam("price") String price){
+			@RequestParam("price") String price, HttpSession session){
 		
 		Offer offer = repository.findOne(id);
-		if(offer.getPrice() < Integer.parseInt(price)){
+		System.out.println(session.getAttribute("login"));
+		System.out.println(offer.getUserLogin());
+		if(offer.getPrice() < Integer.parseInt(price) && session.getAttribute("login")!=offer.getUserLogin() && Integer.parseInt(session.getAttribute("permissions").toString())==1){
 			offer.setPrice(Integer.parseInt(price));
 			String buyerId = offer.getBuyerId();
 			repository.save(offer);
