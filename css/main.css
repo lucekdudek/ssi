@@ -462,6 +462,51 @@ button {
     line-height: 25px;
     font-size: 16px;
     font-weight: 300; }
+  .product-details__date {
+      font-size: 14px;
+      margin-bottom: 20px;
+      display: block;
+  }
+    .product-details__date strong {
+        font-weight: 400;
+        color: #ff6800;
+    }
+  .product-details__bid {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+      -webkit-justify-content: space-between;
+         -moz-box-pack: justify;
+          -ms-flex-pack: justify;
+              justify-content: space-between;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+         -moz-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+  }
+    .product-details__bid span {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 auto;
+       -moz-box-flex: 1;
+        -ms-flex: 1 1 auto;
+            flex: 1 1 auto;
+    }
+
+    .product-details__bid input[type="text"] {
+        border: 1px solid #cccccc;
+        max-width: 150px;
+        margin-right: 5px;
+        align-self: stretch;
+        padding-left: 10px;
+    }
+
+    .product-details__bid button {
+        margin-left: 15px;
+    }
 
 .file-wrapper {
   display: -webkit-box;

@@ -9,6 +9,16 @@
                <span class="form__error"></span>
            </div>
            <div class="form__group">
+               <label>End date:</label>
+               <input type="text" name="date" required="required" id="flatpickr"/>
+               <span class="form__error"></span>
+           </div>
+           <div class="form__group">
+               <label>Min. price:</label>
+               <input type="number" name="price" required="required"/>
+               <span class="form__error"></span>
+           </div>
+           <div class="form__group">
                <label>Photo:</label>
                <div class="file-wrapper">
                    <div class="file-wrapper__preview"><img id="preview" style="max-width: 100%;"/></div>
@@ -17,11 +27,6 @@
                        <button class="btn">Wczytaj</button>
                    </div>
                </div>
-               <span class="form__error"></span>
-           </div>
-           <div class="form__group">
-               <label>Min. price:</label>
-               <input type="number" name="price" required="required"/>
                <span class="form__error"></span>
            </div>
            <div class="form__group">
@@ -43,6 +48,18 @@
 	
 	        if (file) reader.readAsDataURL(file);
 	    })
+	    
+		flatpickr('#flatpickr',{
+		  enableTime: true,
+		  dateFormat: 'Y-m-d H:i',
+		  altFormat: null,
+		  altInput: null,
+		  minDate: null,
+		  maxDate: null,
+		  locale: "pl",
+		  time_24hr: true
+		});
+			    
 	</script>
    </div>
    

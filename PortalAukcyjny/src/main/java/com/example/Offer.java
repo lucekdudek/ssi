@@ -35,11 +35,12 @@ public class Offer {
 
 	public Offer(){}
 	
-	public Offer(String name, String photo, int price, String desc){
+	public Offer(String name, String photo, int price, String desc, String date){
 		this.name = name;
 		this.photo = photo;
 		this.price = price;
 		this.desc = desc;
+		this.endDate = date;
 	}
 	
 	

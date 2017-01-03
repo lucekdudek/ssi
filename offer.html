@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,500&amp;subset=latin-ext" rel="stylesheet">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/main.css">
+    <script type="text/javascript" src="js/jQuery.js"></script>
 </head>
 <body>
     <div class="header">
@@ -29,12 +30,17 @@
                     <div class="product-details__img"><img src=""></div>
                     <div class="product-details__content">
                         <h2>Product name</h2>
+	                    <span th:text="${product.endDate}" id="date" class="product-details__date">Aukcja skończy się: <strong>2017-01-20 21:00</strong></span>
                         <form class="product-details__bid">
-                            20$ <input type="text"/><button class="btn">Bid</button>
+                            <span>20$</span>
+                            <input type="text"/>$
+                            <button class="btn">Bid</button>
                         </form>
                         <p class="product-details__desc">
                             Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem
                         </p>
+                        <br><br>
+                        <h2>Licytujący:</h2>
                     </div>
                 </div>
             </div>
@@ -45,5 +51,8 @@
             Portal aukcyjny 2016
         </div>
     </div>
+    <script type="text/javascript">
+
+    </script>
 </body>
 </html>

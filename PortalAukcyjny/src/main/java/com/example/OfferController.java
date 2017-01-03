@@ -52,7 +52,8 @@ public class OfferController {
 	public ModelAndView postOffer(@RequestParam("name") String name,
 							@RequestParam("file") MultipartFile photo,
 							@RequestParam("price") String price,
-							@RequestParam("desc") String desc){
+							@RequestParam("desc") String desc,
+							@RequestParam("date") String date){
 		
 		if(!photo.isEmpty()){
 			String uploadsDir = "/uploads/";
@@ -72,7 +73,7 @@ public class OfferController {
 			}
 		}        
 		
-		Offer offer = new Offer(name, photo.getOriginalFilename(), Integer.parseInt(price), desc);
+		Offer offer = new Offer(name, photo.getOriginalFilename(), Integer.parseInt(price), desc, date);
 		
 		repository.save(offer);
 		
