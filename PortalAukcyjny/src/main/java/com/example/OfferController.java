@@ -67,7 +67,7 @@ public class OfferController {
 							@RequestParam("file") MultipartFile photo,
 							@RequestParam("price") String price,
 							@RequestParam("desc") String desc,
-							@RequestParam("date") String date){
+							@RequestParam("date") String date, HttpSession session){
 		
 		if(!photo.isEmpty()){
 			String uploadsDir = "/uploads/";
@@ -88,7 +88,7 @@ public class OfferController {
 		}        
 		
 		Offer offer = new Offer(name, photo.getOriginalFilename(), Integer.parseInt(price), desc, date);
-		
+		offer.setUserLogin(session.getAttribute("login").toString());
 		repository.save(offer);
 		
 		return new ModelAndView("redirect:/");
@@ -117,12 +117,11 @@ public class OfferController {
 	
 	@PostMapping(value="/offer/{id}/bid")
     @ResponseBody
-	public String postBidOffer(HttpSession session, @PathVariable long id,
-			@RequestParam("price") String price){
-		
+	public String postBidOffer(@PathVariable long id,
+			@RequestParam("price") String price, HttpSession session){
 		Offer offer = repository.findOne(id);
 		int oldPrice = offer.getPrice();
-		if(oldPrice < Integer.parseInt(price)){
+		if(oldPrice < Integer.parseInt(price) && session.getAttribute("login")!=offer.getUserLogin() && Integer.parseInt(session.getAttribute("permissions").toString())==1){
 			offer.setPrice(Integer.parseInt(price));
 			String buyerId = offer.getBuyerId();
 			if(buyerId!=null){
