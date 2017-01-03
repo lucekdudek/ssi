@@ -1,5 +1,7 @@
 package com.example;
 
+import java.util.ArrayList;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -31,6 +33,8 @@ public class Offer {
 	private String endDate; //data zakończenia/anulacji oferty
 	@Column
 	private String buyerId; //login kupującego
+	@Column
+	private ArrayList<String> biddersList; //loginy licytujacych
 
 
 	public Offer(){}
@@ -41,6 +45,7 @@ public class Offer {
 		this.price = price;
 		this.desc = desc;
 		this.endDate = date;
+		this.biddersList = new ArrayList<String>();
 	}
 	
 	
@@ -122,6 +127,14 @@ public class Offer {
 
 	public void setDesc(String desc) {
 		this.desc = desc;
+	}
+	
+	public ArrayList<String> getBiddersList() {
+		return biddersList;
+	}
+
+	public void setBiddersList(ArrayList<String> biddersList) {
+		this.biddersList = biddersList;
 	}
 	
 	

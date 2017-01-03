@@ -2,6 +2,7 @@ package com.example;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -109,6 +110,14 @@ public class OfferController {
 		Offer offer = repository.findOne(id);
 		if(offer.getPrice() < Integer.parseInt(price)){
 			offer.setPrice(Integer.parseInt(price));
+			String buyerId = offer.getBuyerId();
+			repository.save(offer);
+			if(buyerId!=null){
+				ArrayList<String> biddersList = offer.getBiddersList();
+				biddersList.add(buyerId + " - " + offer.getPrice());
+				offer.setBiddersList(biddersList);
+			}
+			offer.setBuyerId("nowy"); // TODO wpisać tu nazwę usera który licytował
 		}
 		//TODO change min price
 		repository.save(offer);

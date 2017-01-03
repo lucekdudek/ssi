@@ -19,9 +19,9 @@
                  <br/><br/>
                  <h2>Licytujący:</h2>
                  <ul>
-                 	<li>Sylwia - 20$</li>
-                 	<li>Robert - 10$</li>
-                 	<li>Staszek - 5$</li>
+	                 <div class="list-products__item" data-th-each="bidder : ${product.biddersList}">
+	                 	<li th:text="${bidder}"></li>
+	                 </div>
                  </ul>
 	         </div>
      	</div>
