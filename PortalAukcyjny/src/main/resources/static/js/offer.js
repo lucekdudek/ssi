@@ -61,7 +61,7 @@ $(function(){
 		
 		input.css('color', '#000000');
 		
-		if(input.val()<=currentPrice) return input.css('color', '#ff0000');
+		if(parseInt(input.val())<=parseInt(currentPrice)) return input.css('color', '#ff0000');
 		
 		$.ajax({
 			method: "POST",
@@ -71,6 +71,7 @@ $(function(){
 		.done(function( price ) {
 			form[0].reset();
 			$('.product-details__bid span').text(price);
+			input.val(price);
 		});
 	})
 })

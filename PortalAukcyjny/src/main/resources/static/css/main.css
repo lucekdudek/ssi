@@ -270,6 +270,13 @@ button {
     .list-products__item:empty {
       height: 0;
       margin: 0; }
+      
+    .list-products__date {
+        display: block;
+    	text-align: right;
+	    font-size: 14px;
+	    color: #ff6800;
+	}
   @media screen and (max-width: 1023px) {
     .list-products__item {
       -webkit-box-flex: 0;
