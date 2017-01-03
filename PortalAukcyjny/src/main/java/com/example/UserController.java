@@ -23,9 +23,9 @@ public class UserController {
     @PostConstruct
     public void populateUserRepository() {
 		User userA = new User();
-		userA.setEmail("a@a.a");
-		userA.setLogin("a");
-		userA.setPassword("a");
+		userA.setEmail("admin@admin.pl");
+		userA.setLogin("admin");
+		userA.setPassword("admin123");
 		userA.setPermissions(2);
 		repository.save(userA);
 		User userSklep = new User();
