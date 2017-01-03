@@ -4,7 +4,9 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,6 +27,17 @@ public class OfferController {
 	
 	@Autowired
     private HttpServletRequest request;
+	
+    @PostConstruct
+    public void populateOfferRepository() {
+//    	Offer offer1 = new Offer();
+//    	offer1.setUserLogin("Super Sklep");
+//    	offer1.setPrice(10);
+//    	offer1.setName("Playbook");
+//    	offer1.setDesc("goodlike playbook");
+//    	//offer1.setData("unkonow");
+//		repository.save(offer1);
+    }
 
 	@GetMapping("/")
 	public String getOffers(Model model){
@@ -104,20 +117,20 @@ public class OfferController {
 	
 	@PostMapping(value="/offer/{id}/bid")
     @ResponseBody
-	public String postBidOffer(@PathVariable long id,
+	public String postBidOffer(HttpSession session, @PathVariable long id,
 			@RequestParam("price") String price){
 		
 		Offer offer = repository.findOne(id);
-		if(offer.getPrice() < Integer.parseInt(price)){
+		int oldPrice = offer.getPrice();
+		if(oldPrice < Integer.parseInt(price)){
 			offer.setPrice(Integer.parseInt(price));
 			String buyerId = offer.getBuyerId();
-			repository.save(offer);
 			if(buyerId!=null){
 				ArrayList<String> biddersList = offer.getBiddersList();
-				biddersList.add(buyerId + " - " + offer.getPrice());
+				biddersList.add(buyerId + " - " + oldPrice);
 				offer.setBiddersList(biddersList);
 			}
-			offer.setBuyerId("nowy"); // TODO wpisać tu nazwę usera który licytował
+			offer.setBuyerId(session.getAttribute("login").toString()); // TODO wpisać tu nazwę usera który licytował
 		}
 		//TODO change min price
 		repository.save(offer);

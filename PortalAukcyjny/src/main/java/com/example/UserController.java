@@ -1,5 +1,6 @@
 package com.example;
 
+import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,21 @@ import org.springframework.web.servlet.ModelAndView;
 public class UserController {
 	@Autowired
 	private UserRepository repository;
+	
+    @PostConstruct
+    public void populateUserRepository() {
+		User userA = new User();
+		userA.setEmail("a@a.a");
+		userA.setLogin("a");
+		userA.setPassword("a");
+		userA.setPermissions(2);
+		repository.save(userA);
+		User userSklep = new User();
+		userSklep.setEmail("super@sklep.pl");
+		userSklep.setLogin("Super Sklep");
+		userSklep.setPassword("ss");
+		repository.save(userSklep);
+    }
 	
 	@PostMapping("/login")
 	public ModelAndView loginForm(@RequestParam("username") String username, @RequestParam("password") String password, HttpSession session){

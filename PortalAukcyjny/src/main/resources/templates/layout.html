@@ -27,13 +27,13 @@
     <div class="main">
     	<div class="main__bg"></div>
         <div class="content">
-        	<div class="main__sidebar" th:if="${session.permissions==1}" th:with="currentUrl=(${#httpServletRequest.requestURI})">
+        	<div class="main__sidebar" th:if="${session.permissions>0}" th:with="currentUrl=(${#httpServletRequest.requestURI})">
                 <ul>
                 	<li><a href="/" th:classappend="${currentUrl == '/'} ? is-active">Offers</a></li>
                     <li th:if="${session.permissions>=0}"><a href="/add" th:classappend="${currentUrl == '/add'} ? is-active">Add offer</a></li>
                 </ul>
-               	<h3 th:if="${session.permissions==1}">Admin</h3>
-                <ul th:if="${session.permissions==1}">
+               	<h3 th:if="${session.permissions==2}">Admin</h3>
+                <ul th:if="${session.permissions==2}">
                     <li><a href="/admin_offers" th:classappend="${currentUrl == '/admin_offers'} ? is-active">Manage offers</a></li>
                   	<li><a href="/admin_users" th:classappend="${currentUrl == '/admin_users'} ? is-active">Manage users</a></li>
                 </ul>
