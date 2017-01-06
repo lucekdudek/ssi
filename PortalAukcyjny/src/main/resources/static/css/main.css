@@ -512,6 +512,11 @@ button {
     .product-details__bid button {
         margin-left: 15px;
     }
+    
+    @media screen and (max-width: 1023px) {
+	    .product-details {
+	      flex-direction: column }
+	}
 
 .file-wrapper {
   display: -webkit-box;

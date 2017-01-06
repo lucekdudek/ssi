@@ -11,14 +11,15 @@
 	             <h2 th:text="${product.name}"></h2>
 	             <span id="date" class="product-details__date">Aukcja zakończy się: <strong th:text="${product.endDate}"></strong></span>
 	             <form class="product-details__bid" th:action="${'/offer/'+product.id+'/bid'}" method="post">
-	                 <span th:text="${product.price}"></span>
-	                 <input type="number" name="price" required="required" th:value="${product.price}"/>$ 
-	                 <button class="btn">Bid</button>
+	                 <span th:text="${product.price + '$'}"></span>
+	                 <input type="number" name="price" required="required" th:value="${product.price}" th:if="${session.permissions>0}"/><i th:if="${session.permissions>0}">$</i> 
+	                 <button class="btn" th:if="${session.permissions>0}">Bid</button>
 	             </form>
 	             <p class="product-details__desc" th:text="${product.desc}"></p>
                  <br/><br/>
+                 	<div th:text="${session.login}" style="display: none;" id="user"></div>
                  <h2>Licytujący:</h2>
-                 <ul>
+                 <ul id="list">
 	                 <div class="list-products__item" data-th-each="bidder : ${product.biddersList}">
 	                 	<li th:text="${bidder}"></li>
 	                 </div>

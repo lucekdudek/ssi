@@ -9,7 +9,7 @@
                    <span th:text="${product.endDate}" class="list-products__date"></span>
                    <h3 th:text="${product.name}"></h3>
                    <div class="list-products__item-bottom">
-                       <span th:text="${product.price}" th:data-price="${product.price}"></span>
+                       <span th:text="${product.price + '$'}" th:data-price="${product.price}"></span>
                        <div>
                            <a th:href="${'/offer/'+product.id}" class="btn">See more</a>
                        </div>

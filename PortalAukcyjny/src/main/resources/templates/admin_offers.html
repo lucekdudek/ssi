@@ -7,7 +7,7 @@
               	<div class="list-products__item-img"><img th:src="${'uploads/' + product.photo}"/></div>
                 <div class="list-products__item-content">
                   	<h3 th:text="${product.name}"></h3>
-                    <div class="list-products__item-bottom" th:if="${session.permissions==1}">
+                    <div class="list-products__item-bottom" th:if="${session.permissions==2}">
                         <form class="product-details__edit" th:action="${'/offer/'+product.id+'/edit/'}" method="get">
                             <button class="btn">Edit</button>
                         </form>

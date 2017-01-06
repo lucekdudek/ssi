@@ -124,11 +124,12 @@ public class OfferController {
 		if(oldPrice < Integer.parseInt(price) && session.getAttribute("login")!=offer.getUserLogin() && Integer.parseInt(session.getAttribute("permissions").toString())==1){
 			offer.setPrice(Integer.parseInt(price));
 			String buyerId = offer.getBuyerId();
-			if(buyerId!=null){
-				ArrayList<String> biddersList = offer.getBiddersList();
-				biddersList.add(buyerId + " - " + oldPrice);
-				offer.setBiddersList(biddersList);
-			}
+			
+			ArrayList<String> biddersList = offer.getBiddersList();
+			biddersList.add(session.getAttribute("login").toString() + " - " + Integer.parseInt(price));
+			offer.setBiddersList(biddersList);
+			System.out.println(biddersList);
+			
 			offer.setBuyerId(session.getAttribute("login").toString()); // TODO wpisać tu nazwę usera który licytował
 		}
 		//TODO change min price
