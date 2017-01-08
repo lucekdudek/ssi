@@ -72,7 +72,7 @@ $(function(){
 			form[0].reset();
 			$('.product-details__bid span').text(price);
 			input.val(price);
-			$('#list').append('<li>'+$('#user').text()+' - '+price+'</li>');
+			$('#list').append('<li>'+$('#user').text()+' :'+price+'</li>');
 		});
 	})
 })

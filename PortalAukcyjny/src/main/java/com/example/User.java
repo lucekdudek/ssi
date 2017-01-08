@@ -1,6 +1,8 @@
 package com.example;
 
 
+import java.util.ArrayList;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -20,7 +22,17 @@ public class User{
 	private String lastName;
 	@Column
 	private int permissions;
+	@Column
+	private ArrayList<Long> bidList; //licytacje w ktorych bierze udzial
 	
+	public ArrayList<Long> getBidList() {
+		return bidList;
+	}
+
+	public void setBidList(ArrayList<Long> bidList) {
+		this.bidList = bidList;
+	}
+
 	public int getPermissions() {
 		return permissions;
 	}

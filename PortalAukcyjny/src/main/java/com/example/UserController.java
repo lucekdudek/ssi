@@ -46,6 +46,7 @@ public class UserController {
 				 session.setAttribute("firstName", user.getFirstName());
 				 session.setAttribute("lastName", user.getLastName());
 				 session.setAttribute("permissions", user.getPermissions());
+				 session.setAttribute("bids", user.getBidList());
 				 modelAndView.setViewName("redirect:/");
 			}
 		}

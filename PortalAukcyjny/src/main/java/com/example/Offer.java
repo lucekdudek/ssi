@@ -34,8 +34,19 @@ public class Offer {
 	@Column
 	private String buyerId; //login kupującego
 	@Column
-	private ArrayList<String> biddersList; //loginy licytujacych
+	private ArrayList<Bid> biddersList; //loginy licytujacych
+	@Column
+	private int active; //czy oferta aktywna?
+	
 
+
+	public int getActive() {
+		return active;
+	}
+
+	public void setActive(int active) {
+		this.active = active;
+	}
 
 	public Offer(){}
 	
@@ -45,7 +56,7 @@ public class Offer {
 		this.price = price;
 		this.desc = desc;
 		this.endDate = date;
-		this.biddersList = new ArrayList<String>();
+		this.biddersList = new ArrayList<Bid>();
 	}
 	
 	
@@ -129,11 +140,11 @@ public class Offer {
 		this.desc = desc;
 	}
 	
-	public ArrayList<String> getBiddersList() {
+	public ArrayList<Bid> getBiddersList() {
 		return biddersList;
 	}
 
-	public void setBiddersList(ArrayList<String> biddersList) {
+	public void setBiddersList(ArrayList<Bid> biddersList) {
 		this.biddersList = biddersList;
 	}
 	

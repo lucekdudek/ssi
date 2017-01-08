@@ -21,7 +21,7 @@
                  <h2>Licytujący:</h2>
                  <ul id="list">
 	                 <div class="list-products__item" data-th-each="bidder : ${product.biddersList}">
-	                 	<li th:text="${bidder}"></li>
+	                 	<li th:text="${bidder.login + ' :' + bidder.price}"> </li>
 	                 </div>
                  </ul>
 	         </div>

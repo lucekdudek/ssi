@@ -2,8 +2,10 @@ package com.example;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Iterator;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,6 +31,19 @@ public class OfferController {
 	public String getOffers(Model model){
 		model.addAttribute("products", repository.findAll());
 	    return "offers";
+	}
+	
+	@GetMapping("/my_offers")
+	public String myOffers(Model model, HttpSession session){
+		Iterator<Offer> i = repository.findAll().iterator();
+		Offer offe;
+		while(i.hasNext()){
+			offe = i.next();
+			if(offe.getUserLogin().equals(session.getAttribute("login"))){
+				model.addAttribute("my_offers", offe);
+			}
+		}
+	    return "my_offers";
 	}
 
 	@GetMapping("/offer/{id}")
