@@ -68,6 +68,21 @@ public class OfferController {
 	    return "my_offers";
 	}
 	
+	@GetMapping("/won_offers")
+	public String wonOffers(Model model, HttpSession session){
+		ArrayList<Long> list = (ArrayList<Long>)(session.getAttribute("bids"));
+		if(list == null) list = new ArrayList<Long>();
+		Offer offerBuffer;
+		for(int j = 0;j<list.size();j++){
+			offerBuffer = repository.findOne(list.get(j));
+			if(offerBuffer!=null && offerBuffer.getBiddersList().get(offerBuffer.getBiddersList().size()).login.equals(session.getAttribute("login")) && offerBuffer.getActive()!=1){
+				model.addAttribute("products",repository.findOne(list.get(j)));
+				System.out.println(list.get(j));
+			}
+		}
+	    return "my_offers";
+	}
+	
 	@GetMapping("/offer/{id}")
 	public String getOffer(@PathVariable long id, Model model){
 		model.addAttribute("product", repository.findOne(id));
