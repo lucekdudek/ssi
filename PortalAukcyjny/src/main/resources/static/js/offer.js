@@ -70,9 +70,11 @@ $(function(){
 		})
 		.done(function( price ) {
 			form[0].reset();
-			$('.product-details__bid span').text(price);
+			$('.product-details__bid span').text(price+'$');
 			input.val(price);
-			$('#list').append('<li>'+$('#user').text()+' :'+price+'</li>');
+			if(parseInt(price)>parseInt(currentPrice)){
+				$('#list').append('<li>'+$('#user').text()+': '+price+'$</li>');
+			}
 		});
 	})
 })

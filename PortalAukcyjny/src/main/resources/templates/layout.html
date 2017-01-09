@@ -10,6 +10,7 @@
     <script type="text/javascript" src="/js/jquery.js"></script>
     <link rel="stylesheet" href="/css/flatpickr.min.css"/>
 	<script src="/js/flatpickr.min.js"></script>
+	<script src="/js/pl.js"></script>
 </head>
 <body>
     <div class="header">
@@ -17,7 +18,8 @@
             <button class="btn-toggle"><i></i><i></i><i></i></button>
                 <a href="/"><h1>Portal aukcyjny</h1></a>
             <div th:if="${session.permissions>=0}">
-                <a href="/logout" th:text="'Witaj '+ ${session.login} +'! Wyloguj'"></a>
+            	<span th:text="${'Witaj '+ session.login +'! '}"></span>
+                <a href="/logout">Wyloguj</a>
             </div>
             <div th:unless="${session.permissions>=0}">
                 <a href="/login">Zaloguj</a>

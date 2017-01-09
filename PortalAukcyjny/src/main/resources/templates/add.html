@@ -1,10 +1,14 @@
 <html layout:decorator="layout">
+<head>
+    <meta charset="utf-8"/>
+</head>
+<body>
 
    <div layout:fragment="content">
-       <h2>Dodaj ofertê</h2>
+       <h2>Dodaj ofertÄ™</h2>
        <form class="form form--half" action="/add" method="post" enctype="multipart/form-data">
            <div class="form__group">
-               <label>Tytu³:</label>
+               <label>TytuÅ‚:</label>
                <input type="text" name="name" required="required"/>
                <span class="form__error"></span>
            </div>
@@ -19,7 +23,7 @@
                <span class="form__error"></span>
            </div>
            <div class="form__group">
-               <label>Zdjêcie:</label>
+               <label>ZdjÄ™cie:</label>
                <div class="file-wrapper">
                    <div class="file-wrapper__preview"><img id="preview" style="max-width: 100%;"/></div>
                    <div class="file-wrapper__btn">
@@ -62,5 +66,6 @@
 			    
 	</script>
    </div>
-   
+
+</body>
 </html>
