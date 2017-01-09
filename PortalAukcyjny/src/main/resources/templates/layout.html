@@ -17,7 +17,7 @@
             <button class="btn-toggle"><i></i><i></i><i></i></button>
                 <a href="/"><h1>Portal aukcyjny</h1></a>
             <div th:if="${session.permissions>=0}">
-                <a href="/logout">Wyloguj</a>
+                <a href="/logout" th:text="'Witaj '+ ${session.login} +'! Wyloguj'"></a>
             </div>
             <div th:unless="${session.permissions>=0}">
                 <a href="/login">Zaloguj</a>

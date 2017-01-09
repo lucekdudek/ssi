@@ -144,20 +144,17 @@ public class OfferController {
 			@RequestParam("price") String price, HttpSession session){
 		Offer offer = repository.findOne(id);
 		int oldPrice = offer.getPrice();
-		if(oldPrice < Integer.parseInt(price) && !session.getAttribute("login").equals(offer.getUserLogin()) && Integer.parseInt(session.getAttribute("permissions").toString())==1){
+		if(oldPrice < Integer.parseInt(price) && !session.getAttribute("login").equals(offer.getUserLogin()) && !session.getAttribute("login").equals(offer.getBuyerId()) && Integer.parseInt(session.getAttribute("permissions").toString())>=1){
 			offer.setPrice(Integer.parseInt(price));
-			String buyerId = offer.getBuyerId();
 			ArrayList<Bid> biddersList = offer.getBiddersList();
 			biddersList.add(new Bid(session.getAttribute("login").toString(),Integer.parseInt(price)));
 			offer.setBiddersList(biddersList);
-			System.out.println(biddersList);
-			offer.setBuyerId(session.getAttribute("login").toString()); // TODO wpisać tu nazwę usera który licytował
+			offer.setBuyerId(session.getAttribute("login").toString());
 			ArrayList<Long> list = (ArrayList<Long>) session.getAttribute("bids");
 			if(list == null) list = new ArrayList<Long>();
 			list.add(offer.getId());
 			session.setAttribute("bids", list);
 		}
-		//TODO change min price
 		repository.save(offer);
 		return String.valueOf(offer.getPrice());
     }
