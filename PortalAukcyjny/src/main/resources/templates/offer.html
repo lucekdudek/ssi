@@ -13,7 +13,7 @@
 	             <form class="product-details__bid" th:action="${'/offer/'+product.id+'/bid'}" method="post">
 	                 <span th:text="${product.price + '$'}"></span>
 	                 <input type="number" name="price" required="required" th:value="${product.price}" th:if="${session.permissions>0}"/><i th:if="${session.permissions>0}">$</i> 
-	                 <button class="btn" th:if="${session.permissions>0}">Bid</button>
+	                 <button class="btn" th:if="${session.permissions>0}">Licytuj</button>
 	             </form>
 	             <p class="product-details__desc" th:text="${product.desc}"></p>
                  <br/><br/>

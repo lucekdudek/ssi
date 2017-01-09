@@ -1,28 +1,28 @@
 <html layout:decorator="layout">
 
    <div layout:fragment="content">
-       <h2>Edit offer</h2>
+       <h2>Edytuj aukcje</h2>
        <form class="form form--half" th:action="${'/offer/'+product.id+'/delete/'}" method="post">
-           <input type="submit" class="btn btn--second" name="submit" value="Delete"/>
+           <input type="submit" class="btn btn--second" name="submit" value="Usuñ"/>
        </form>
        <br/><br/>
        <form class="form form--half" th:action="${'/offer/'+product.id+'/edit/'}" method="post" enctype="multipart/form-data">
            <div class="form__group">
-               <label>Name:</label>
+               <label>Tytu³:</label>
                <input type="text" name="name" th:value="${product.name}"/>
                <span class="form__error"></span>
            </div>
            <div class="form__group">
-               <label>Photo:</label>
+               <label>Zdjecie:</label>
                <div class="product-details__img"><img th:src="${'/uploads/' + product.photo}"/></div>
                <span class="form__error"></span>
            </div>
            <div class="form__group">
-               <label>Description:</label>
+               <label>Opis:</label>
                <textarea name="desc" th:text="${product.desc}"></textarea>
                <span class="form__error"></span>
            </div>
-           <input type="submit" class="btn" name="submit" value="Save"/>
+           <input type="submit" class="btn" name="submit" value="Zapisz"/>
        </form>
        
        <script type="text/javascript">

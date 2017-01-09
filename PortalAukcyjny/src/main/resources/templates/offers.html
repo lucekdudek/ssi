@@ -1,7 +1,7 @@
 <html layout:decorator="layout">
 
    <div layout:fragment="content">
-       <h2>Offers</h2>
+       <h2>Aukcje</h2>
        <div class="list-products">
            <div class="list-products__item" data-th-each="product : ${products}">
                <div class="list-products__item-img"><img th:src="${'uploads/' + product.photo}"/></div>
@@ -11,7 +11,7 @@
                    <div class="list-products__item-bottom">
                        <span th:text="${product.price + '$'}" th:data-price="${product.price}"></span>
                        <div>
-                           <a th:href="${'/offer/'+product.id}" class="btn">See more</a>
+                           <a th:href="${'/offer/'+product.id}" class="btn">Szczegó³y</a>
                        </div>
                    </div>
                </div>

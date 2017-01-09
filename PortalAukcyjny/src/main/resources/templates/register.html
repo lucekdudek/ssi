@@ -14,35 +14,35 @@
             <button class="btn-toggle"><i></i><i></i><i></i></button>
                 <a href="/"><h1>Portal aukcyjny</h1></a>
             <div th:if="${session.permissions>=0}">
-                <a href="/logout">Log out</a>
+                <a href="/logout">Wyloguj</a>
             </div>
             <div th:unless="${session.permissions>=0}">
-                <a href="/login">Log in</a>
+                <a href="/login">Zaloguj</a>
             </div>
         </div>
     </div>
     <div class="main main--form">
         <div class="content">
             <div class="main__content">
-                <h2>Sign up</h2>
+                <h2>Zarejestruj się</h2>
                 <form class="form" method="post">
                     <div class="form__group">
-                        <label>E-mail:</label>
+                        <label>Adres e-mail:</label>
                         <input type="email" name="email"/>
                         <span class="form__error"></span>
                     </div>
                     <div class="form__group">
-                        <label>Username:</label>
+                        <label>Nazwa użytkownika:</label>
                         <input type="text" name="username"/>
                         <span class="form__error"></span>
                     </div>
                     <div class="form__group">
-                        <label>Password:</label>
+                        <label>Hasło:</label>
                         <input type="password" name="password"/>
                         <span class="form__error"></span>
                     </div>
-                    <input type="submit" class="btn" name="submit" value="Sign up"/>
-                    <a href="login.html" class="form__bottom-link">Log in</a>
+                    <input type="submit" class="btn" name="submit" value="Zarejestruj się"/>
+                    <a href="login.html" class="form__bottom-link">Zaloguj się</a>
                 </form>
             </div>
         </div>
