@@ -161,9 +161,10 @@ public class OfferController {
 	
 	@PostMapping("/offer/{id}/delete")
 	public ModelAndView postDeleteOffer(@PathVariable long id){
-		Offer offer = repository.findOne(id);
-		offer.setEndDate(new java.util.Date().getDate()+"/"+new java.util.Date().getMonth()+"/"+new java.util.Date().getYear()+" "+new java.util.Date().getHours()+":"+new java.util.Date().getMinutes());
-		offer.setActive(0);
+		repository.delete(id);
+//		Offer offer = repository.findOne(id);
+//		offer.setEndDate(new java.util.Date().getDate()+"/"+new java.util.Date().getMonth()+"/"+new java.util.Date().getYear()+" "+new java.util.Date().getHours()+":"+new java.util.Date().getMinutes());
+//		offer.setActive(0);
 		return new ModelAndView("redirect:/");
     }
 	

@@ -12,7 +12,7 @@
               <div class="list-users__item-content">
                   <h3 th:text="${user.login}"></h3>
                   <div class="list-users__item-bottom">
-                      <div th:if="${session.permissions==2}">
+                      <div th:if="${session.permissions==2 and user.permissions!=2}">
                			<form class="product-details__edit" th:action="${'/user/'+user.login+'/delete/'}" method="post">
                            <button class="btn btn--second">Usuń</button>
                        	</form>
