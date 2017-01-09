@@ -129,13 +129,11 @@ public class OfferController {
 	@PostMapping("/offer/{id}/edit")
 	public ModelAndView postEditOffer(@PathVariable long id,
 			@RequestParam("name") String name,
-			@RequestParam("price") String price,
 			@RequestParam("desc") String desc){
 		
 		Offer offer = repository.findOne(id);
 		offer.setDesc(desc);
 		offer.setName(name);
-		//TODO change min price
 		repository.save(offer);
 		return new ModelAndView("redirect:/");
     }

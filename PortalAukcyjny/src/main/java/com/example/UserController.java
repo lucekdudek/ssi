@@ -22,17 +22,27 @@ public class UserController {
 	
     @PostConstruct
     public void populateUserRepository() {
-		User userA = new User();
-		userA.setEmail("admin@admin.pl");
-		userA.setLogin("admin");
-		userA.setPassword("admin123");
-		userA.setPermissions(2);
-		repository.save(userA);
+		User userAdmin = new User();
+		userAdmin.setEmail("admin@admin.pl");
+		userAdmin.setLogin("admin");
+		userAdmin.setPassword("admin123");
+		userAdmin.setPermissions(2);
+		repository.save(userAdmin);
 		User userSklep = new User();
 		userSklep.setEmail("super@sklep.pl");
 		userSklep.setLogin("Super Sklep");
 		userSklep.setPassword("ss");
 		repository.save(userSklep);
+		User userA = new User();
+		userA.setEmail("a@a.a");
+		userA.setLogin("a");
+		userA.setPassword("a");
+		repository.save(userA);
+		User userB = new User();
+		userB.setEmail("b@b.b");
+		userB.setLogin("b");
+		userB.setPassword("b");
+		repository.save(userB);
     }
 	
 	@PostMapping("/login")

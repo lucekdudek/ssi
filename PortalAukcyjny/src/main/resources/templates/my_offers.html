@@ -11,14 +11,11 @@
                    <div class="list-products__item-bottom">
                        <span th:text="${product.price + '$'}" th:data-price="${product.price}"></span>
                        <div>
-                           <a th:href="${'/offer/'+product.id}" class="btn">See more</a>
+                           <a th:href="${'/offer/'+product.id+'/edit'}" class="btn">Edytuj</a>
                        </div>
                    </div>
                </div>
            </div>
-        <div class="list-products__item"></div>
-        <div class="list-products__item"></div>
-        <div class="list-products__item"></div>
        </div>
    </div>
    
