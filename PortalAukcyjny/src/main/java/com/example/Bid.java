@@ -11,3 +11,6 @@ public Bid(String login, int price){
 	this.price = price;
 }
 }
+
+
+
